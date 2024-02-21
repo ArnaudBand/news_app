@@ -44,7 +44,7 @@ function App() {
   return (
       <div className={"flex flex-col gap-y-4 mx-3"}>
         <h3 className="text-xl font-bold text-center">Actuality</h3>
-        <form onSubmit={handleSubmit} className={'flex items-center justify-center rounded bg-gray-500 p-3 w-fit gap-x-2'}>
+        <form onSubmit={handleSubmit} className={'flex items-center justify-center text-center rounded bg-gray-500 p-3 w-fit gap-x-0.5'}>
           <input type={"text"} value={searchQuery} onChange={handleChange} className={'border-none rounded pl-3 bg-black text-white'} />
           <button className={'bg-black text-white px-2 rounded'}>Search</button>
         </form>
@@ -52,8 +52,8 @@ function App() {
         <p className="text-center">Loading...</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {news.map((article) => (
-              <NewsCard article={article} />
+            {news.map((article, index) => (
+              <NewsCard key={index} article={article} />
             ))}
           </div>
         )}
